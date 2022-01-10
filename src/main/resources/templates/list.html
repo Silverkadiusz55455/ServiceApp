@@ -10,16 +10,15 @@
 <body>
 <div style="width: 500px; margin: 50px auto">
     <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center" th:each="repair: ${repairs}">
-            <!--<a th:href="@{/'repair?id' + ${repair.id}}" th:each="repair: ${repairs}"> -->
-
-            <spam th:text="${repair.id}" th:href=""></spam>
-            <spam th:text="${repair.name}" th:href="@{|/strona/${repair}|}"></spam>
-            <spam class="badge badge-primary badge-pill"
-               th:text="|${#numbers.formatDecimal(repair.price, 0, 'WHITESPACE', 2, 'COMMA')}zl|"></spam>
-
+        <li class="list-group-item d-flex justify-content-between align-items-center"
+            th:each="repair: ${repairs}">
+            <spam th:text="${repair.id}"></spam>
+            <span th:text="${repair.name}"></span>
+            <span class="badge badge-primary badge-pill"
+                  th:text="|${#numbers.formatDecimal(repair.price, 0, 'WHITESPACE', 2, 'COMMA')}zl|"></span>
         </li>
     </ul>
+   
     <b th:text="|Suma cen: ${#numbers.formatDecimal(priceSum, 0, 'WHITESPACE', 2, 'COMMA')} zł|"></b>
 </div>
 
