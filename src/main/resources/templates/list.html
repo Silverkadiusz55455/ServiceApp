@@ -12,13 +12,15 @@
     <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center"
             th:each="repair: ${repairs}">
-            <spam th:text="${repair.id}"></spam>
+            <!--<spam th:text="${repair.id}"></spam>-->
+            <!--<a th:href="|/repair/${repair.id}|" th:text="${repair.id}"></a>-->
+            <a th:href="@{'/repair?id=' + ${repair.id}}" th:text="${repair.id}"></a>
             <span th:text="${repair.name}"></span>
             <span class="badge badge-primary badge-pill"
                   th:text="|${#numbers.formatDecimal(repair.price, 0, 'WHITESPACE', 2, 'COMMA')}zl|"></span>
         </li>
     </ul>
-   
+
     <b th:text="|Suma cen: ${#numbers.formatDecimal(priceSum, 0, 'WHITESPACE', 2, 'COMMA')} zł|"></b>
 </div>
 
