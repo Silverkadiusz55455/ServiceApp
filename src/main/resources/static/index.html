@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ServiceHome</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div  style="width: 500px; margin: 50px auto">
+    <a href="/lista">ListOfRepair</a>
+    <a href="/tab">TableOfRepair</a>
+
+    <h2>Add Repair</h2>
+
+    <form action="/dodaj" method="post">
+
+        <div class="form-group">
+            <label for="id">Id</label>
+            <input type="text" class="form-control" id="id" name="id" placeholder="id">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nazwa</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Nazwa">
+        </div>
+
+        <div class="form-group">
+            <label for="price">Cena</label>
+            <input type="number" class="form-control" id="price" name="price" placeholder="Cena">
+        </div>
+
+        <input type="submit" value="Dodaj" class="btn btn-primary"/>
+
+        
+
+    </form>
+</div>
+
+
+</body>
+</html>
