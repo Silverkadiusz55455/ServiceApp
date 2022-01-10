@@ -9,7 +9,7 @@ import java.util.List;
 public class RepairRepository {
     private final List<Repair> repairList;
 
-    private RepairRepository() {
+    public RepairRepository() {
         repairList = new ArrayList<>();
         repairList.add(new Repair("A01", "Samsung", 150.50));
         repairList.add(new Repair("A02", "Samsung", 160.50));

@@ -18,6 +18,7 @@ public class ServiceController {
         this.repairRepository = repairRepository;
 
     }
+    List<Repair> repairs;
 
     @GetMapping("/lista")
     public String list(Model model) {
@@ -32,7 +33,7 @@ public class ServiceController {
     }
 
     private void prepareDataForTableOrList(Model model) {
-        List<Repair> repairs = repairRepository.findAll();
+        repairs = repairRepository.findAll();
         model.addAttribute("repairs", repairs);
         double sum = 0;
         for (Repair repair : repairs) {
@@ -61,6 +62,31 @@ public class ServiceController {
             return "redirect:/lista";
         }
     }
+
+    @GetMapping("/edit")
+    public String editForm(@RequestParam String id, Model model) {
+        for (Repair repair : repairs) {
+            if(repair.getId().equals(id)) {
+                model.addAttribute("repair", repair);
+                return "edit";
+            }
+        }
+        return "redirect:/lista";
+    }
+
+    @PostMapping("/edit")
+    public String edit(@RequestParam String id, Model model) {
+        for (Repair repair : repairs) {
+            if(repair.getId().equals(id)) {
+                repair.setId(repair.getId());
+                repair.setName(repair.getName());
+                repair.setPrice(repair.getPrice());
+                break;
+            }
+        }
+        return "redirect:/lista";
+    }
+
 
 
 }

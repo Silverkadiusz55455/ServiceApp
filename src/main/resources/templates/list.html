@@ -14,10 +14,11 @@
             th:each="repair: ${repairs}">
             <!--<spam th:text="${repair.id}"></spam>-->
             <!--<a th:href="|/repair/${repair.id}|" th:text="${repair.id}"></a>-->
-            <a th:href="@{'/repair?id=' + ${repair.id}}" th:text="${repair.id}"></a>
+            <a th:href="@{'/repair?id=' + ${repair.id}}" th:text="${repair.id}">
             <span th:text="${repair.name}"></span>
             <span class="badge badge-primary badge-pill"
                   th:text="|${#numbers.formatDecimal(repair.price, 0, 'WHITESPACE', 2, 'COMMA')}zl|"></span>
+            </a>
         </li>
     </ul>
 
